@@ -10,6 +10,24 @@ class Produtos extends CI_Controller {
 		$this->load->view("produtos/lista", $dados);
 
 	}
+
+    public function listar_array()
+    {
+        $this->load->model("ProdutosModel","produtos");
+        $resultado = $this->produtos->listar_todos();
+        echo '<pre>';
+
+        var_dump($resultado);
+    }
+
+    public function listar_tabela()
+    {
+        $this->load->model("ProdutosModel", "produtos");
+        $resultado = $this->produtos->listar_todos();
+        $dados = array("produtos" => $resultado);
+        $this->load->view("produtos/lista_tabela", $dados);
+    }
+
     public function teste(){
         $h2 = date("d/m/Y");
         echo "hoje é: ". $h2. ".";
