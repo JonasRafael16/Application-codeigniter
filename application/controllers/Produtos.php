@@ -5,7 +5,9 @@ class Produtos extends CI_Controller {
 
 	public function index()
 	{
-		echo "<h1> Página de produtos</h1>";
+        $texto = "Você está usando o controller Produtos";
+        $dados = array("mensagem" => $texto);
+		$this->load->view("produtos/lista", $dados);
 
 	}
     public function teste(){
